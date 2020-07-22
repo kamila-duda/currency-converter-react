@@ -4,11 +4,12 @@ import Section from "./Section";
 import Form from "./Form";
 import Footer from "./Footer";
 import Table from "./Table";
+import result from "./Form/index.js"
 
 function App() {
-  
+  //console.log(result);
   return (
-    <>
+    <> 
     <main className="container">
         <Header /> 
         <Section className={"exchangeRates"}
@@ -17,7 +18,7 @@ function App() {
         <Section className={"currencyConverter"}
         body={<Form />}
         extraContent={
-          <p className="currencyConverter__result js-currencyConverter__result">
+          <p className="currencyConverter__result js-currencyConverter__result">hhhhhhh{result}
           </p>} 
         />
     </main>
