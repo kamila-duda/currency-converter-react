@@ -1,31 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const Form = () => {
+  const [amount, setAmount] = useState("");
+  const [firstCurrency, setFirstCurrency] = useState(1);
+  const [secondCurrency, setSecondCurrency] = useState(1);
+  //const [symbol, setSymbol] = useState("PLN");
+  const chooseFirstCurrency = ({target}) => {
+    setFirstCurrency(target.value);
+  }
+  const chooseSecondCurrency = ({target}) => {
+    setSecondCurrency(target.value);
+    //setSymbol(target.innerText);
+  }
+  const calculate = () => {
+    return amount*firstCurrency/secondCurrency;
+    
+  }
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    const result = calculate();
+    console.log(result);
+  };
+    
   return (
-    <form className="currencyConverter__form">
+    <form className="currencyConverter__form"
+    onClick={onFormSubmit}>
       <p className="form__row">
         <span className="form__inputMark">Mam:</span>
-        <input className="form__field js-amount" type="number" min="1" required
-          autoFocus />
-        <select className="form__select js-form__selectFirst" name="firstOption">
-          <option value="pln">PLN</option>
-          <option value="eur">EUR</option>
-          <option value="usd">USD</option>
-          <option value="gbp">GBP</option>
+        <input value={amount}
+        onChange={({target}) => {setAmount(Number(target.value))}} className="form__field js-amount" 
+        type="number" 
+        min="1" 
+        required
+        autoFocus />
+        <select value={firstCurrency}
+        onChange={chooseFirstCurrency}
+        className="form__select js-form__selectFirst" name="firstOption">
+          <option value="1">PLN</option>
+          <option value="4.45">EUR</option>
+          <option value="3.96">USD</option>
+          <option value="4.97">GBP</option>
         </select></p>
       <p className="form__row">
         <span className="form__inputMark">Na:</span>
-        <select className="form__select js-form__selectSecond" name="secondOption">
-          <option value="pln">PLN</option>
-          <option value="eur">EUR</option>
-          <option value="usd">USD</option>
-          <option value="gbp">GBP</option>
+        <select value={secondCurrency}
+        onChange={chooseSecondCurrency} 
+        className="form__select js-form__selectSecond" name="secondOption">
+          <option value="1">PLN</option>
+          <option value="4.45">EUR</option>
+          <option value="3.96">USD</option>
+          <option value="4.97">GBP</option>
         </select>
         <button className="form__button js-form__button">Przelicz</button>
       </p>
     </form>
   )
 };
+export default Form; 
 
-export default Form;
