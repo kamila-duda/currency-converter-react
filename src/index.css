@@ -10,7 +10,6 @@ html {
   font-family: 'Muli', sans-serif;
   line-height: 1.5;
   text-align: center;
-  font-size: 18px;
   margin: 0;
   background-image: url("https://i.ibb.co/vjNBpQQ/bg.jpg");
   background-size: cover;
@@ -18,7 +17,6 @@ html {
 .container{
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
   background-color: #ffffff;
   border: 2px solid #000;
   display: flex;
