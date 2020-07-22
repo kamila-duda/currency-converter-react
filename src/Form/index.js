@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = () => {
+const Form = ({calculate}) => {
   const [amount, setAmount] = useState("");
   const [firstCurrency, setFirstCurrency] = useState(1);
   const [secondCurrency, setSecondCurrency] = useState(1);
@@ -13,15 +13,9 @@ const Form = () => {
     setSecondCurrency(target.value);
     //setSymbol(target.innerText);
   }
-  const calculate = () => {
-    return amount*firstCurrency/secondCurrency;
-  }
-
-  const result = calculate();
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const result = calculate();
-  console.log(result);
+    calculate(amount, firstCurrency, secondCurrency);
   };
     
   return (
