@@ -8,7 +8,25 @@ import Table from "./Table";
 function App() {
   const [result, setResult] = useState("");
   const calculate = (amount, firstCurrency, secondCurrency) => {
-    setResult(amount*firstCurrency/secondCurrency);
+    const endResult = amount*firstCurrency/secondCurrency;
+    setResult(endResult.toFixed(2));
+  }
+  const [symbol, setSymbol] = useState("PLN");
+  const currency = (secondCurrency) => {
+    switch(secondCurrency){
+      case "4.45":
+        setSymbol("EUR");
+        break;
+      case "3.96":
+        setSymbol("USD");
+        break;
+      case "4.97":
+        setSymbol("GBP");
+        break;
+      default:
+        setSymbol("PLN");
+        break;
+    }
   }
   return (
     <> 
@@ -18,9 +36,10 @@ function App() {
         body={<Table />} 
         />
         <Section className={"currencyConverter"}
-        body={<Form calculate={calculate} />}
+        body={<Form calculate={calculate}
+        currency={currency} />}
         extraContent={
-          <p className="currencyConverter__result js-currencyConverter__result">{result}
+          <p className="currencyConverter__result">{result}{symbol}
           </p>} 
         />
     </main>

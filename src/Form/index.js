@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import "./style.css";
 
-const Form = ({calculate}) => {
+const Form = ({calculate, currency}) => {
   const [amount, setAmount] = useState("");
   const [firstCurrency, setFirstCurrency] = useState(1);
   const [secondCurrency, setSecondCurrency] = useState(1);
-  //const [symbol, setSymbol] = useState("PLN");
+ 
   const chooseFirstCurrency = ({target}) => {
     setFirstCurrency(target.value);
   }
   const chooseSecondCurrency = ({target}) => {
     setSecondCurrency(target.value);
-    //setSymbol(target.innerText);
+    
   }
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculate(amount, firstCurrency, secondCurrency);
+    currency(secondCurrency);
+    //setSymbol(symbol);
   };
     
   return (
@@ -31,7 +33,7 @@ const Form = ({calculate}) => {
         autoFocus />
         <select value={firstCurrency}
         onChange={chooseFirstCurrency}
-        className="form__select js-form__selectFirst" name="firstOption">
+        className="form__select" name="firstOption">
           <option value="1">PLN</option>
           <option value="4.45">EUR</option>
           <option value="3.96">USD</option>
@@ -41,13 +43,13 @@ const Form = ({calculate}) => {
         <span className="form__inputMark">Na:</span>
         <select value={secondCurrency}
         onChange={chooseSecondCurrency} 
-        className="form__select js-form__selectSecond" name="secondOption">
+        className="form__select" name="secondOption">
           <option value="1">PLN</option>
           <option value="4.45">EUR</option>
           <option value="3.96">USD</option>
           <option value="4.97">GBP</option>
         </select>
-        <button className="form__button js-form__button">Przelicz</button>
+        <button className="form__button">Przelicz</button>
       </p>
     </form>
   )
