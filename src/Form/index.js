@@ -19,7 +19,7 @@ const Form = ({ calculate, currency }) => {
   };
   return (
     <form className="currencyConverter__form"
-      onClick={onFormSubmit}>
+      onSubmit={onFormSubmit}>
       <p className="form__row">
         <span className="form__inputMark">Mam:</span>
         <input value={amount}

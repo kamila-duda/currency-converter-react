@@ -11,7 +11,7 @@ function App() {
     const endResult = amount * firstCurrency / secondCurrency;
     setResult(endResult.toFixed(2));
   }
-  const [symbol, setSymbol] = useState("PLN");
+  const [symbol, setSymbol] = useState("");
   const currency = (secondCurrency) => {
     switch (secondCurrency) {
       case "4.45":
@@ -41,7 +41,7 @@ function App() {
             currency={currency}
           />}
           extraContent={
-            <p className="currencyConverter__result">{result}{symbol}
+            <p className="currencyConverter__result">{`${result} ${symbol}`}
             </p>}
         />
       </main>
