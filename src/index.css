@@ -15,9 +15,9 @@ html {
   background-size: cover;
 }
 .container{
-  max-width: 800px;
+  max-width: 600px;
   margin: 80px auto;
-  background-color: #ffffff;
+  background-color: #6d8ecbad;
   border: 2px solid #000;
   border-radius: 10px;
   box-shadow: 0 0 20px #000;
