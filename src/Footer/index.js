@@ -4,7 +4,7 @@ import "./style.css";
 const Footer = () => {
     return (
         <footer className="footer">
-            Kamila Duda &quot; Wszelkie prawa zastrzeżone
+            Kamila Duda © Wszelkie prawa zastrzeżone
         </footer>
     )
 };

@@ -16,10 +16,22 @@ html {
 }
 .container{
   max-width: 800px;
-  margin: 0 auto;
+  margin: 80px auto;
   background-color: #ffffff;
   border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+.section__container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media(max-width: 786px){
+  .section__container{
+    flex-direction: column;
+  }
 }

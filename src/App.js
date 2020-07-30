@@ -4,6 +4,7 @@ import Section from "./Section";
 import Form from "./Form";
 import Footer from "./Footer";
 import Table from "./Table";
+import Time from "./Time";
 
 function App() {
   const [result, setResult] = useState("");
@@ -12,6 +13,7 @@ function App() {
     setResult(endResult.toFixed(2));
   }
   const [symbol, setSymbol] = useState("");
+  
   const currency = (secondCurrency) => {
     switch (secondCurrency) {
       case "4.45":
@@ -31,7 +33,9 @@ function App() {
   return (
     <>
       <main className="container">
+        <Time />
         <Header />
+        <div className="section__container">
         <Section className={"exchangeRates"}
           body={<Table />}
         />
@@ -44,6 +48,7 @@ function App() {
             <p className="currencyConverter__result">{`${result} ${symbol}`}
             </p>}
         />
+        </div>
       </main>
       <Footer />
     </>

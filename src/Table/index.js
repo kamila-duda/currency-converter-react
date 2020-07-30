@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { currencyChoose } from "../utils/currency";
 
 const Table = () => {
     return (
@@ -12,20 +13,14 @@ const Table = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr className="table__row">
-                    <td className="table__cell"><img className="table__image" src="https://i.ibb.co/9sLpkpS/euro.png" alt="Euro flag" />EUR</td>
-                    <td className="table__cell">4.45</td>
-                </tr>
-                <tr className="table__row">
-                    <td className="table__cell"><img className="table__image" src="https://i.ibb.co/7KGVPHp/usa.png" alt="USA flag" />USD</td>
-                    <td className="table__cell">3.96</td>
-                </tr>
-                <tr className="table__row">
-                    <td className="table__cell"><img className="table__image" src="https://i.ibb.co/6msQtYz/gb.png" alt="British flag" />GBP</td>
-                    <td className="table__cell">4.97</td>
-                </tr>
+            {currencyChoose.map((currency => (
+            <tr className="table__row" key={currency.symbol}>
+            <td className="table__cell"><img className="table__image" 
+            src={currency.image} alt={currency.name} />{currency.symbol}</td>
+            <td className="table__cell">{currency.currency}</td>
+            </tr>
+          )))}
             </tbody>
-
         </table>
     )
 };
