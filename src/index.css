@@ -25,6 +25,11 @@ html {
   justify-content: center;
   flex-direction: column;
 }
+@media(max-width: 414px){
+  .container{
+    margin: 8px;
+  }
+}
 .section__container{
   display: flex;
   justify-content: space-around;

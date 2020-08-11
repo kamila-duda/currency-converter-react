@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { currencyChoose } from "../utils/currency";
+import { currencies } from "../utils/currency";
 
 const Form = ({ calculate, currency }) => {
   const [amount, setAmount] = useState("");
@@ -34,7 +34,7 @@ const Form = ({ calculate, currency }) => {
         <select value={firstCurrency}
           onChange={chooseFirstCurrency}
           className="form__select" name="firstOption">
-          {currencyChoose.map((currency => (
+          {currencies.map((currency => (
             <option
               key={currency.symbol}
               value={currency.currency}
@@ -49,7 +49,7 @@ const Form = ({ calculate, currency }) => {
         <select value={secondCurrency}
           onChange={chooseSecondCurrency}
           className="form__select" name="secondOption">
-          {currencyChoose.map((currency => (
+          {currencies.map((currency => (
             <option
               key={currency.symbol}
               value={currency.currency}

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
+const newDate = (date) => date.toLocaleDateString('pl', {
+  month: 'long',
+  weekday: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+})
+
 const Time = () => {
-  const [date, setDate] = useState()
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const newDate = new Date().toLocaleDateString('pl', {
-        month: 'long',
-        weekday: 'long',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric'
-      })
-      setDate(newDate)
+      setDate(new Date())
     }, 1000)
 
     return () => {
@@ -23,7 +24,7 @@ const Time = () => {
     }
   }, [])
 
-  return <p className='header__time'>Dzisiaj jest {date}</p>
+  return <p className='header__time'>Dzisiaj jest {newDate(date)}</p>
 }
 
 export default Time;
