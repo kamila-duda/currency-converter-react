@@ -18,14 +18,14 @@ export const TableRow = styled.tr`
 export const TableHeading = styled.th`
   border: 2px solid #000;
   padding: 5px;
-  background-color: #8a2be2;
+  background-color: teal;
   color: #fff;
 `
 
 export const TableCell = styled.td`
   border: 2px solid #000;
   padding: 5px;
-  background-color: #faf0c2;
+  background-color: #fff;
   font-weight: 700;
 `
 

@@ -14,8 +14,9 @@ body{
   line-height: 1.5;
   text-align: center;
   margin: 0;
-  background-image: url("https://i.ibb.co/vjNBpQQ/bg.jpg");
+  background-image: url("https://i.ibb.co/YkMq9Rn/bg.jpg");
   background-size: cover;
+  height: 100%;
 }`
 
-export default GlobalStyle;
+export default GlobalStyle

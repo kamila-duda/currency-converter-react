@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  margin: 40px;
-  background-color: #fff;
-  border: 2px solid #000;
+  margin: 40px auto;
+  max-width: 900px;
+  background-color: #FAF0C2;
   border-radius: 10px;
   box-shadow: 0 0 20px #000;
   display: flex;
