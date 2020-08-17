@@ -4,7 +4,6 @@ export const TableContainer = styled.table`
   border-collapse: collapse;
   width: 250px;
   font-size: 15px;
-  margin: 5px;
 `
 
 export const Caption = styled.caption`

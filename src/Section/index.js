@@ -1,11 +1,13 @@
 import React from "react";
+import {Tile} from "./styled"
 
-const Section = ({body, extraContent}) => {
+const Section = ({header, body, extraContent}) => {
     return (
-        <section>
+        <Tile>
+                {header}
                 {body}
                 {extraContent}
-        </section>
+        </Tile>
     )
 }
 

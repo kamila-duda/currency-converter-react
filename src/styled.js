@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const Main = styled.main`
-  max-width: 600px;
-  margin: 80px auto;
-  background-color: #6d8ecbad;
+  margin: 40px;
+  background-color: #fff;
   border: 2px solid #000;
   border-radius: 10px;
   box-shadow: 0 0 20px #000;
@@ -14,6 +13,7 @@ export const Main = styled.main`
     margin: 8px;
   }
 `
+
 export const SectionContainer = styled.div`
   display: flex;
   justify-content: space-around;
