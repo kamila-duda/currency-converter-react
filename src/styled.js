@@ -25,7 +25,7 @@ export const SectionContainer = styled.div`
 
 export const Result = styled.p`
   font-weight: bold;
-  color: #fff;
+  color: #000;
   height: 35px;
   padding-bottom: 30px;
   font-size: 30px;
