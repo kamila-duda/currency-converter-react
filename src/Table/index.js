@@ -1,39 +1,38 @@
 import React from 'react'
-import './style.css'
+import {TableContainer, Caption, TableRow, TableHeading, TableCell, TableImage} from "./styled"
 import { currencies } from '../utils/currency'
 
 const Table = () => {
   return (
-    <table className='exchangeRates__table'>
-      <caption className='table__title'>
+    <TableContainer>
+      <Caption>
         Kurs walut z dnia: 16.06.2020 r.
-      </caption>
+      </Caption>
       <thead>
-        <tr className='table__row'>
-          <th className='table__heading' scope='col'>
+        <TableRow>
+          <TableHeading scope='col'>
             Waluta
-          </th>
-          <th className='table__heading' scope='col'>
+          </TableHeading>
+          <TableHeading scope='col'>
             Kurs w PLN
-          </th>
-        </tr>
+          </TableHeading>
+        </TableRow>
       </thead>
       <tbody>
         {currencies.map(currency => (
-          <tr className='table__row' key={currency.symbol}>
-            <td className='table__cell'>
-              <img
-                className='table__image'
+          <TableRow key={currency.symbol}>
+            <TableCell>
+              <TableImage
                 src={currency.image}
                 alt={currency.name}
               />
               {currency.symbol}
-            </td>
-            <td className='table__cell'>{currency.rate}</td>
-          </tr>
+            </TableCell>
+            <TableCell>{currency.rate}</TableCell>
+          </TableRow>
         ))}
       </tbody>
-    </table>
+    </TableContainer>
   )
 }
 

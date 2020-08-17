@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import './style.css'
+import {DateFormat} from "./styled"
 
-const newDate = (date) => date.toLocaleDateString('pl', {
+const newDate = (date) => date.toLocaleDateString(undefined, {
   month: 'long',
   weekday: 'long',
   day: 'numeric',
@@ -24,7 +24,7 @@ const Time = () => {
     }
   }, [])
 
-  return <p className='header__time'>Dzisiaj jest {newDate(date)}</p>
+  return <DateFormat>Dzisiaj jest {newDate(date)}</DateFormat>
 }
 
 export default Time;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./style.css";
 import { currencies } from "../utils/currency";
+import {FormContainer, FormInput, InputDescription, FormSelect, Button} from "./styled"
 
 const Form = ({ calculate, currency }) => {
   const [amount, setAmount] = useState("");
@@ -19,21 +19,19 @@ const Form = ({ calculate, currency }) => {
     currency(secondCurrency);
   };
   return (
-    <form className="currencyConverter__form"
+    <FormContainer
       onSubmit={onFormSubmit}>
-      <p className="form__row">
-        <span className="form__inputMark">Mam:</span>
-        <input value={amount}
+      <p>
+        <InputDescription>Mam:</InputDescription>
+        <FormInput value={amount}
           onChange={({ target }) => { setAmount(Number(target.value)) }}
-          className="form__field js-amount"
           type="number"
           min="1"
           required
           autoFocus
         />
-        <select value={firstCurrency}
-          onChange={chooseFirstCurrency}
-          className="form__select" name="firstOption">
+        <FormSelect value={firstCurrency}
+          onChange={chooseFirstCurrency}>
           {currencies.map((currency => (
             <option
               key={currency.symbol}
@@ -42,13 +40,12 @@ const Form = ({ calculate, currency }) => {
               {currency.symbol}
             </option>
           )))}
-        </select>
+        </FormSelect>
       </p>
-      <p className="form__row">
-        <span className="form__inputMark">Na:</span>
-        <select value={secondCurrency}
-          onChange={chooseSecondCurrency}
-          className="form__select" name="secondOption">
+      <p>
+        <InputDescription>Na:</InputDescription>
+        <FormSelect value={secondCurrency}
+          onChange={chooseSecondCurrency}>
           {currencies.map((currency => (
             <option
               key={currency.symbol}
@@ -57,10 +54,10 @@ const Form = ({ calculate, currency }) => {
               {currency.symbol}
             </option>
           )))}
-        </select>
-        <button className="form__button">Przelicz</button>
+        </FormSelect>
+        <Button>Przelicz</Button>
       </p>
-    </form>
+    </FormContainer>
   )
 };
 export default Form;

@@ -1,11 +1,7 @@
-import React from "react";
-import "./style.css";
+import React from 'react'
+import { FooterArea } from './styled'
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            Kamila Duda © Wszelkie prawa zastrzeżone
-        </footer>
-    )
-};
-export default Footer;
+  return <FooterArea>Kamila Duda © Wszelkie prawa zastrzeżone</FooterArea>
+}
+export default Footer

@@ -5,6 +5,7 @@ import Form from "./Form";
 import Footer from "./Footer";
 import Table from "./Table";
 import Time from "./Time";
+import {Main, SectionContainer, Result} from "./styled"
 
 function App() {
   const [result, setResult] = useState("");
@@ -32,24 +33,24 @@ function App() {
   }
   return (
     <>
-      <main className="container">
+      <Main>
         <Time />
         <Header />
-        <div className="section__container">
-        <Section className={"exchangeRates"}
+        <SectionContainer>
+        <Section
           body={<Table />}
         />
-        <Section className={"currencyConverter"}
+        <Section
           body={<Form
             calculate={calculate}
             currency={currency}
           />}
           extraContent={
-            <p className="currencyConverter__result">{`${result} ${symbol}`}
-            </p>}
+            <Result>{`${result} ${symbol}`}
+            </Result>}
         />
-        </div>
-      </main>
+        </SectionContainer>
+      </Main>
       <Footer />
     </>
   );

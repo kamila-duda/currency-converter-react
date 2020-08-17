@@ -1,9 +1,8 @@
 import React from "react";
-import "./style.css";
 
-const Section = ({className, body, extraContent}) => {
+const Section = ({body, extraContent}) => {
     return (
-        <section className={className}>
+        <section>
                 {body}
                 {extraContent}
         </section>
