@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {DateFormat} from "./styled"
+import useCurrentDate from "./useCurrentDate"
 
 const newDate = (date) => date.toLocaleDateString(undefined, {
   month: 'long',
@@ -12,17 +13,7 @@ const newDate = (date) => date.toLocaleDateString(undefined, {
 })
 
 const Time = () => {
-  const [date, setDate] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setDate(new Date())
-    }, 1000)
-
-    return () => {
-      clearInterval(intervalId)
-    }
-  }, [])
+  const date = useCurrentDate();
 
   return <DateFormat>Dzisiaj jest {newDate(date)}</DateFormat>
 }
