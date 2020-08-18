@@ -31,7 +31,7 @@ export const TableCell = styled.td`
 
 export const TableImage = styled.img`
   width: 60px;
-  border: 0.5px solid #000;
+  border: 0.7px solid #000;
   margin: 0 auto;
   display: block;
 `

@@ -1,9 +1,17 @@
 import styled from 'styled-components'
 
+export const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100vh;
+`
+
 export const Main = styled.main`
   margin: 40px auto;
+  flex-basis: 100%;
   max-width: 900px;
-  background-color: #FAF0C2;
+  background-color: #faf0c2c2;
   border-radius: 10px;
   box-shadow: 0 0 20px #000;
   display: flex;

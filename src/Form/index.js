@@ -28,7 +28,6 @@ const Form = ({ calculate, currency }) => {
           type="number"
           min="1"
           required
-          autoFocus
         />
         <FormSelect value={firstCurrency}
           onChange={chooseFirstCurrency}>

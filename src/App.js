@@ -5,7 +5,7 @@ import Form from './Form'
 import Footer from './Footer'
 import Table from './Table'
 import Time from './Time'
-import { Main, SectionContainer, Result } from './styled'
+import { Div, Main, SectionContainer, Result } from './styled'
 
 function App () {
   const [result, setResult] = useState('')
@@ -32,7 +32,7 @@ function App () {
     }
   }
   return (
-    <>
+    <Div>
       <Main>
         <Time />
         <SectionContainer>
@@ -48,7 +48,7 @@ function App () {
         </SectionContainer>
       </Main>
       <Footer />
-    </>
+    </Div>
   )
 }
 

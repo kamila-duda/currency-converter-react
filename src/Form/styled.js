@@ -10,7 +10,6 @@ export const FormInput = styled.input`
   border-radius: 10px;
   outline: none;
   border: 2px solid teal;
-  font-size: 14px;
   width: 90px;
   display: inline-block;
 `
@@ -22,7 +21,6 @@ export const InputDescription = styled.span`
   margin: 2px;
   border-radius: 10px;
   outline: none;
-  border: 2px solid teal;
   font-size: 14px;
   width: 90px;
   display: inline-block;
