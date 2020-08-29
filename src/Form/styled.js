@@ -10,31 +10,16 @@ export const FormInput = styled.input`
   border-radius: 10px;
   outline: none;
   border: 2px solid teal;
+  font-size: 14px;
   width: 90px;
   display: inline-block;
 `
-
-export const InputDescription = styled.span`
+export const InputDescription = styled(FormInput)`
   color: #fff;
   background-color: teal;
-  padding: 10px;
-  margin: 2px;
-  border-radius: 10px;
-  outline: none;
-  font-size: 14px;
-  width: 90px;
-  display: inline-block;
 `
-export const FormSelect = styled.select`
-  padding: 10px;
-  margin: 2px;
-  border-radius: 10px;
-  outline: none;
-  border: 2px solid teal;
-  font-size: 14px;
-  width: 90px;
-  display: inline-block;
-`
+export const FormSelect = styled(FormInput)``
+
 export const Button = styled.button`
   background-color: teal;
   outline: none;

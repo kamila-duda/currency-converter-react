@@ -2,42 +2,43 @@ import styled from 'styled-components'
 
 export const TableContainer = styled.table`
   border-collapse: separate;
-  width: 250px;
   font-size: 15px;
   border: 1px solid #000;
-border-radius: 10px;
-border-spacing: 0px;
+  border-radius: 10px;
+  border-spacing: 0px;
 `
 export const Caption = styled.caption`
   font-size: 13px;
 `
-export const TableRow = styled.tr`
-  padding: 5px;
+export const Thead = styled.thead`
+  border-top-right-radius: 10px;
+  display: block;
+  background-color: teal;
+  border-top-left-radius: 10px;
 `
 export const TableHeading = styled.th`
-  
-  background-color: teal;
-  padding: 5px;   
-&:first-child{
-  border-radius: 10px 0 0 0;
-}
-&:last-child{
-  border-radius: 0 10px 0 0;
-border-left: 1px solid #000; 
-}
+  width: 100px;
+  padding: 5px;
+  &:first-child {
+    border-right: 1px solid #000;
+  }
 `
-
-export const TableCell = styled.td`
-  padding: 5px;  
-border-top: 1px solid #000; 
-&:nth-child(even){
-border-left: 1px solid #000; 
-}
+export const TableRow = styled.tr`
+  &:nth-child(even) {
+    background-color: #0000002b;
+  }
 `
-
-export const TableImage = styled.img`
-  width: 60px;
-  border: 0.7px solid #000;
-  margin: 0 auto;
+export const Tbody = styled.tbody`
   display: block;
+  width: 100%;
+  overflow-y: scroll;
+  height: 300px;
+`
+export const TableCell = styled.td`
+  padding: 15px;
+  width: 100px;
+  font-weight: bold;
+  &:first-child {
+    border-right: 1px solid black;
+  }
 `

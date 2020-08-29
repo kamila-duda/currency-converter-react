@@ -1,63 +1,67 @@
-import React, { useState } from "react";
-import { currencies } from "../utils/currency";
-import {FormContainer, FormInput, InputDescription, FormSelect, Button} from "./styled"
+import React, { useState } from 'react'
+import {
+  FormContainer,
+  FormInput,
+  InputDescription,
+  FormSelect,
+  Button
+} from './styled'
 
 const Form = ({ calculate, currency }) => {
-  const [amount, setAmount] = useState("");
-  const [firstCurrency, setFirstCurrency] = useState(1);
-  const [secondCurrency, setSecondCurrency] = useState(1);
+  const [amount, setAmount] = useState('')
+  const [firstCurrency, setFirstCurrency] = useState('PLN')
+  const [secondCurrency, setSecondCurrency] = useState('EUR')
 
   const chooseFirstCurrency = ({ target }) => {
-    setFirstCurrency(target.value);
+    setFirstCurrency(target.value)
   }
   const chooseSecondCurrency = ({ target }) => {
-    setSecondCurrency(target.value);
+    setSecondCurrency(target.value)
   }
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-    calculate(amount, firstCurrency, secondCurrency);
-    currency(secondCurrency);
-  };
+  const objectEntries = Object.entries(currency)
+  const sortedRates = objectEntries.sort()
+
+  const onFormSubmit = event => {
+    event.preventDefault()
+    calculate(amount, firstCurrency, secondCurrency)
+  }
   return (
-    <FormContainer
-      onSubmit={onFormSubmit}>
+    <FormContainer onSubmit={onFormSubmit}>
       <p>
-        <InputDescription>Mam:</InputDescription>
-        <FormInput value={amount}
-          onChange={({ target }) => { setAmount(Number(target.value)) }}
-          type="number"
-          min="1"
+        <InputDescription as='span'>Mam:</InputDescription>
+        <FormInput
+          value={amount}
+          onChange={({ target }) => {
+            setAmount(Number(target.value))
+          }}
+          type='number'
+          min='1'
           required
         />
-        <FormSelect value={firstCurrency}
-          onChange={chooseFirstCurrency}>
-          {currencies.map((currency => (
-            <option
-              key={currency.symbol}
-              value={currency.rate}
-            >
-              {currency.symbol}
-            </option>
-          )))}
+        <FormSelect
+          as='select'
+          value={firstCurrency}
+          onChange={chooseFirstCurrency}
+        >
+          {sortedRates.map(currency => (
+            <option key={currency[0]}>{currency[0]}</option>
+          ))}
         </FormSelect>
       </p>
       <p>
-        <InputDescription>Na:</InputDescription>
-        <FormSelect value={secondCurrency}
-          onChange={chooseSecondCurrency}>
-          {currencies.map((currency => (
-            <option
-              key={currency.symbol}
-              value={currency.rate}
-            >
-              {currency.symbol}
-            </option>
-          )))}
+        <InputDescription as='span'>Na:</InputDescription>
+        <FormSelect
+          as='select'
+          value={secondCurrency}
+          onChange={chooseSecondCurrency}
+        >
+          {sortedRates.map(currency => (
+            <option key={currency[0]}>{currency[0]}</option>
+          ))}
         </FormSelect>
         <Button>Przelicz</Button>
       </p>
     </FormContainer>
   )
-};
-export default Form;
-
+}
+export default Form

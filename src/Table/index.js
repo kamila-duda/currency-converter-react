@@ -1,37 +1,34 @@
 import React from 'react'
-import {TableContainer, Caption, TableRow, TableHeading, TableCell, TableImage} from "./styled"
-import { currencies } from '../utils/currency'
+import {
+  TableContainer,
+  Caption,
+  Thead,
+  TableHeading,
+  Tbody,
+  TableRow,
+  TableCell
+} from './styled'
 
-const Table = () => {
+const Table = ({ date, rates }) => {
+  const objectEntries = Object.entries(rates)
+  const sortedRates = objectEntries.sort()
   return (
     <TableContainer>
-      <Caption>
-        Kurs walut z dnia: 16.06.2020 r.
-      </Caption>
-      <thead>
-        <TableRow>
-          <TableHeading scope='col'>
-            Waluta
-          </TableHeading>
-          <TableHeading scope='col'>
-            Kurs w PLN
-          </TableHeading>
-        </TableRow>
-      </thead>
-      <tbody>
-        {currencies.map(currency => (
-          <TableRow key={currency.symbol}>
-            <TableCell>
-              <TableImage
-                src={currency.image}
-                alt={currency.name}
-              />
-              {currency.symbol}
-            </TableCell>
-            <TableCell>{currency.rate}</TableCell>
+      <Caption>Kurs z dnia: {date} z European Central Bank.</Caption>
+      <Thead>
+        <tr>
+          <TableHeading scope='col'>Waluta</TableHeading>
+          <TableHeading scope='col'>Kurs w PLN</TableHeading>
+        </tr>
+      </Thead>
+      <Tbody>
+        {sortedRates.map(rates => (
+          <TableRow key={rates[0]}>
+            <TableCell>{rates[0]}</TableCell>
+            <TableCell>{(1 / rates[1]).toFixed(2)}</TableCell>
           </TableRow>
         ))}
-      </tbody>
+      </Tbody>
     </TableContainer>
   )
 }

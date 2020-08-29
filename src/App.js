@@ -6,45 +6,34 @@ import Footer from './Footer'
 import Table from './Table'
 import Time from './Time'
 import { Div, Main, SectionContainer, Result } from './styled'
+import { useRatesData } from './useRatesData'
 
 function App () {
+  const { date, rates, error } = useRatesData()
   const [result, setResult] = useState('')
   const calculate = (amount, firstCurrency, secondCurrency) => {
-    const endResult = (amount * firstCurrency) / secondCurrency
-    setResult(endResult.toFixed(2))
-  }
-  const [symbol, setSymbol] = useState('')
-
-  const currency = secondCurrency => {
-    switch (secondCurrency) {
-      case '4.45':
-        setSymbol('EUR')
-        break
-      case '3.96':
-        setSymbol('USD')
-        break
-      case '4.97':
-        setSymbol('GBP')
-        break
-      default:
-        setSymbol('PLN')
-        break
-    }
+    const endResult = (amount * rates[secondCurrency]) / rates[firstCurrency]
+    setResult(`${endResult.toFixed(2)} ${secondCurrency}`)
   }
   return (
     <Div>
       <Main>
         <Time />
         <SectionContainer>
-          <Section 
-          body={<Table />} />
-          <Section
-          header={<Header />} 
-          body={<Form 
-              calculate={calculate} 
-              currency={currency} />}
-          extraContent={<Result>{`${result} ${symbol}`}</Result>}
-          />
+          {rates ? (
+            <>
+              <Section body={<Table date={date} rates={rates} />} />
+              <Section
+                header={<Header />}
+                body={<Form calculate={calculate} currency={rates} />}
+                extraContent={<Result>{`${result}`}</Result>}
+              />
+            </>
+          ) : !error ? (
+            'Proszę chwilę zaczekać, pobieramy najnowsze kursy walut'
+          ) : (
+            'Ups... coś poszło nie tak. Sprawdź połączenie z internetem lub spróbuj ponownie później'
+          )}
         </SectionContainer>
       </Main>
       <Footer />

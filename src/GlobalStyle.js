@@ -17,6 +17,22 @@ body{
   background-image: url("https://i.ibb.co/YkMq9Rn/bg.jpg");
   background-size: cover;
   height: 100%;
-}`
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: teal; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00a7a7; 
+  cursor: pointer;
+}
+`
 
 export default GlobalStyle
