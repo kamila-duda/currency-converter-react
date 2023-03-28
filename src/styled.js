@@ -1,16 +1,16 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   height: 100vh;
-`
+`;
 
 export const Main = styled.main`
   margin: 40px auto;
   flex-basis: 100%;
-  max-width: 900px;
+  width: 90%;
   background-color: #faf0c2c2;
   border-radius: 10px;
   box-shadow: 0 0 20px #000;
@@ -20,7 +20,7 @@ export const Main = styled.main`
   @media (max-width: 414px) {
     margin: 8px;
   }
-`
+`;
 
 export const SectionContainer = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ export const SectionContainer = styled.div`
   @media (max-width: 786px) {
     flex-direction: column;
   }
-`
+`;
 
 export const Result = styled.p`
   font-weight: bold;
@@ -37,4 +37,4 @@ export const Result = styled.p`
   height: 35px;
   padding-bottom: 30px;
   font-size: 30px;
-`
+`;
