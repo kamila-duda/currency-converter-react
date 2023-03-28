@@ -10,7 +10,7 @@ export const useRatesData = () => {
 
   useEffect(() => {
     axios
-      .get('https://api.exchangeratesapi.io/latest?base=PLN')
+      .get('https://api.exchangeratesapi.io/v1/latest?access_key=8go28D0JjOGGc3bqDOUXccVZXyX7WdpG&base=PLN')
       .then(response =>
         setRatesData({
           date: response.data.date,
